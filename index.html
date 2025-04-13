@@ -1,0 +1,74 @@
+<html>
+<head>
+	<title>Cat Meme Pages</title>
+	<!-- For PNG (use this if your icon is .png) -->
+	<link rel="icon" href="neko.jpg" type="image/png">
+	<style>
+		body {
+			background-image: url('bg1.jpg');
+			background-repeat: repeat;
+			background-size: auto;
+			background-attachment: fixed;
+			margin: 0;
+			padding: 0;
+		}
+
+		.video-container {
+	      	display: flex;
+	      	justify-content: center;
+	      	align-items: center;
+	     	flex-wrap: wrap;
+	      	gap: 40px;
+	      	padding: 60px 20px;
+	    }
+
+	    .meme {
+	      	width: 300px;
+	      	border-radius: 16px;
+	      	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+	      	transition: transform 0.2s ease;
+	    }
+
+	    .meme:hover {
+	      	transform: scale(1.05);
+	      	cursor: pointer;
+	    }
+	</style>
+</head>
+
+<body>
+	<div class="video-container">
+		<video class="meme" loop muted playsinline src=".mp4"></video>
+		<video class="meme" loop muted playsinline src=".mp4"></video>
+		<video class="meme" loop muted playsinline src=".mp4"></video>
+		<video class="meme" loop muted playsinline src=".mp4"></video>
+		<video class="meme" loop muted playsinline src=".mp4"></video>
+		<video class="meme" loop muted playsinline src=".mp4"></video>
+		<video class="meme" loop muted playsinline src=".mp4"></video>
+		<video class="meme" loop muted playsinline src=".mp4"></video>
+    </div>
+
+	<script>
+    	const videos = document.querySelectorAll(".meme");
+
+	    videos.forEach(video => {
+	    	// Try to autoplay muted (works without user interaction)
+	    	video.play().catch(e => console.log("Autoplay blocked:", e));
+	    	
+	    	// Hover to play and unmute
+	      	video.addEventListener("mouseenter", () => {
+	      		video.muted = false;  // Unmute
+	        	video.currentTime = 0; // Reset to start
+	        	video.play(); // Play video
+      		});
+
+	      	video.addEventListener("mouseleave", () => {
+	      		video.muted = true;  // Mute again when leaving
+    			video.play();
+        		video.currentTime = 0; // Reset to start
+      		});
+      		
+    	});
+  	</script>
+</body>
+</html>
