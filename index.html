@@ -33,12 +33,21 @@
 	      	transform: scale(1.05);
 	      	cursor: pointer;
 	    }
+
+	    .meme::webkit-media-controls {
+	    	display: none;
+	    	opacity: 0;
+	    }
+
+	    .meme {
+	    	pointer-events: auto;
+	    }
 	</style>
 </head>
 
 <body>
 	<div class="video-container">
-		<video class="meme" loop muted playsinline src=".mp4"></video>
+		<video class="meme" loop muted playsinline controls src="3.mp4"></video>
 		<video class="meme" loop muted playsinline src=".mp4"></video>
 		<video class="meme" loop muted playsinline src=".mp4"></video>
 		<video class="meme" loop muted playsinline src=".mp4"></video>
